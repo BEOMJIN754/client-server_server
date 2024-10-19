@@ -1,34 +1,35 @@
+import java.io.Serializable;
 import java.util.StringTokenizer;
-
-public class Course extends Information {
-    private static final long serialVersionUID = 1L;
-    protected String cName;
-    protected String preRequisite;
-
-    public Course(String inputString) {
-        super(inputString.split(" ")[0], inputString.split(" ")[1]); // id, professor 설정
-        StringTokenizer stringTokenizer = new StringTokenizer(inputString);
-        stringTokenizer.nextToken(); // skip id
-        stringTokenizer.nextToken(); // skip professor
-
-        this.cName = stringTokenizer.nextToken();
-        this.preRequisite = stringTokenizer.hasMoreTokens() ? stringTokenizer.nextToken() : "";
-    }
-
-    public String getcName() {
-        return cName;
-    }
-
-    public String getPreRequisite() {
-        return preRequisite;
-    }
-
-    @Override
-    public String toString() {
-        String stringReturn = super.toString() + " " + cName;
-        if (!preRequisite.isEmpty()) {
-            stringReturn += " " + preRequisite;
+public class Course implements Serializable {
+	private static final long serialVersionUID = 1L;
+	protected String courseId;
+	protected String professor;
+	protected String cName;
+	protected String preRequisite;
+	
+	public Course(String inputString) {
+		StringTokenizer stringTokenizer = new StringTokenizer(inputString);
+		this.courseId = stringTokenizer.nextToken();
+		this.professor = stringTokenizer.nextToken();
+		this.cName = stringTokenizer.nextToken();
+		if (stringTokenizer.hasMoreTokens()) {
+            this.preRequisite = stringTokenizer.nextToken();
+        } else {
+            this.preRequisite = ""; // 없으면 빈 문자열로 설정
         }
-        return stringReturn;
-    }
+	}
+	
+	public boolean match(String courseId) {
+		return this.courseId.equals(courseId);
+	}
+	public String getcName() {
+		return this.cName;
+	}
+	public String getpreRequisite() {
+		return this.preRequisite;
+	}
+	public String toString() {
+		String stringReturn = this.courseId + " " + this.professor + " " + this.cName + " " + this.preRequisite;
+		return stringReturn;
+	}
 }
