@@ -6,5 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/RClient"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/RData"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -3,8 +3,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import javax.xml.crypto.Data;
-
 public class Server extends UnicastRemoteObject implements ServerIF{
 	
 	private static DataIF data;
@@ -30,7 +28,7 @@ public class Server extends UnicastRemoteObject implements ServerIF{
 	}
 	
 	@Override
-	public ArrayList<Student> getAllStudentData() throws RemoteException {
+	public ArrayList<Student> getAllStudentData() throws RemoteException,NullDataException {
 		// TODO Auto-generated method stub
 		return data.getAllStudentData();
 	}
@@ -38,5 +36,15 @@ public class Server extends UnicastRemoteObject implements ServerIF{
 	public ArrayList<Course> getAllCourseData() throws RemoteException {
 		// TODO Auto-generated method stub
 		return data.getAllCourseData();
+	}
+	@Override
+	public boolean addStudent(String studentInfo) throws RemoteException {
+		if(data.addStudent(studentInfo))return true;
+		else return false;
+	}
+	@Override
+	public boolean deleteStudent(String studentId) throws RemoteException {
+		if(data.deleteStudent(studentId))return true;
+		else return false;
 	}
 }
