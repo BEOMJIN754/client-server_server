@@ -1,0 +1,136 @@
+10월 27, 2024 12:45:27 오전 ServerLogger log
+INFO: Server is ready.
+10월 27, 2024 12:45:48 오전 ServerLogger log
+INFO: User signed up. User ID: 
+10월 27, 2024 12:45:57 오전 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 27, 2024 12:46:02 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 12:46:18 오전 ServerLogger log
+INFO: Added student. Info: 1 1 1 1
+10월 27, 2024 12:48:47 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 12:49:11 오전 ServerLogger log
+INFO: Registered course. Student ID: 1, Course ID: 12345
+10월 27, 2024 12:50:33 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 12:51:55 오전 ServerLogger log
+WARNING: Attempted sign up with existing User ID: 
+10월 27, 2024 12:51:55 오전 ServerLogger log
+INFO: User signed up. User ID: 
+10월 27, 2024 12:52:02 오전 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 27, 2024 12:52:20 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 12:52:24 오전 ServerLogger log
+INFO: Fetched all course data.
+10월 27, 2024 12:52:55 오전 ServerLogger log
+INFO: Registered course. Student ID: 1, Course ID: 23456
+10월 27, 2024 12:52:59 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 1:22:52 오전 ServerLogger log
+INFO: Server is ready.
+10월 27, 2024 1:23:08 오전 ServerLogger log
+INFO: User signed up. User ID: 
+10월 27, 2024 1:23:14 오전 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 27, 2024 1:23:25 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 1:23:28 오전 ServerLogger log
+INFO: Fetched all course data.
+10월 27, 2024 1:24:29 오전 ServerLogger log
+INFO: Added student. Info: 1 1 1 1
+10월 27, 2024 1:24:42 오전 ServerLogger log
+INFO: Registered course. Student ID: 1, Course ID: 12345
+10월 27, 2024 1:24:55 오전 ServerLogger log
+INFO: Registered course. Student ID: 1, Course ID: 23456
+10월 27, 2024 1:25:00 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 1:25:07 오전 ServerLogger log
+INFO: Deleted registration. Student ID: 1, Course ID: 12345
+10월 27, 2024 1:25:07 오전 ServerLogger log
+INFO: User logged out successfully.
+10월 27, 2024 1:38:40 오전 ServerLogger log
+WARNING: Attempted sign up with existing User ID: 
+10월 27, 2024 1:38:40 오전 ServerLogger log
+INFO: User signed up. User ID: 
+10월 27, 2024 1:39:04 오전 ServerLogger log
+WARNING: Authentication failed for user: 12354678
+10월 27, 2024 1:39:17 오전 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 27, 2024 1:39:20 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 1:39:32 오전 ServerLogger log
+WARNING: Failed to delete registration for Student ID: 1, Course ID: 12345
+10월 27, 2024 1:41:10 오전 ServerLogger log
+INFO: Deleted registration. Student ID: 1, Course ID: 23456
+10월 27, 2024 1:41:14 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 1:55:03 오전 ServerLogger log
+INFO: Server is ready.
+10월 27, 2024 1:55:15 오전 ServerLogger log
+WARNING: Authentication failed for user: 12345678
+10월 27, 2024 1:55:34 오전 ServerLogger log
+INFO: User signed up. User ID: 
+10월 27, 2024 1:55:39 오전 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 27, 2024 1:55:41 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 1:55:51 오전 ServerLogger log
+INFO: Added student. Info: 1 1 1 1
+10월 27, 2024 1:55:59 오전 ServerLogger log
+INFO: Registered course. Student ID: 1, Course ID: 12345
+10월 27, 2024 1:56:05 오전 ServerLogger log
+INFO: Registered course. Student ID: 1, Course ID: 23456
+10월 27, 2024 1:56:45 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 1:56:51 오전 ServerLogger log
+INFO: Deleted registration. Student ID: 1, Course ID: 12345
+10월 27, 2024 1:56:53 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 2:12:54 오전 ServerLogger log
+INFO: Server is ready.
+10월 27, 2024 2:13:08 오전 ServerLogger log
+INFO: User signed up. User ID: 
+10월 27, 2024 2:13:13 오전 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 27, 2024 2:13:18 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 2:13:26 오전 ServerLogger log
+INFO: Fetched all course data.
+10월 27, 2024 2:13:30 오전 ServerLogger log
+INFO: Added student. Info: 1 1 1 1
+10월 27, 2024 2:13:44 오전 ServerLogger log
+INFO: Registered course. Student ID: 1, Course ID: 12345
+10월 27, 2024 2:13:45 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 2:13:52 오전 ServerLogger log
+INFO: Fetched student data for ID: 1
+10월 27, 2024 2:19:03 오전 ServerLogger log
+WARNING: Attempted sign up with existing User ID: 
+10월 27, 2024 2:19:03 오전 ServerLogger log
+INFO: User signed up. User ID: 
+10월 27, 2024 2:19:09 오전 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 27, 2024 2:19:10 오전 ServerLogger log
+INFO: Fetched all student data.
+10월 27, 2024 2:19:22 오전 ServerLogger log
+INFO: Fetched student data for ID: 1
+10월 27, 2024 2:19:37 오전 ServerLogger log
+INFO: Fetched student data for ID: 20130095
+10월 27, 2024 2:21:43 오전 ServerLogger log
+INFO: Server is ready.
+10월 27, 2024 2:22:08 오전 ServerLogger log
+INFO: User signed up. User ID: 
+10월 27, 2024 2:22:10 오전 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 27, 2024 2:22:15 오전 ServerLogger log
+INFO: Added student. Info: 1 1 1 1
+10월 27, 2024 2:22:19 오전 ServerLogger log
+INFO: Registered course. Student ID: 1, Course ID: 12345
+10월 27, 2024 2:22:52 오전 ServerLogger log
+INFO: Fetched student data for ID: 1
+10월 27, 2024 2:23:01 오전 ServerLogger log
+INFO: Fetched student data for ID: 20130095
+10월 27, 2024 2:26:02 오전 ServerLogger log
+INFO: User logged out successfully.

@@ -17,5 +17,6 @@ public interface DataIF extends Remote {
 	boolean registerCourse(String studentId, String courseId) throws RemoteException, WrongInputException;
 	boolean addUserRecords(String usetInfo) throws RemoteException;
 	boolean deleteUserRecords(String userId) throws RemoteException;
+	boolean deleteRegistration(String studentId, String courseId) throws RemoteException;
 	
 }

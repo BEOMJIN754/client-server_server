@@ -119,10 +119,17 @@ public class Server extends UnicastRemoteObject implements ServerIF {
     public boolean registerCourse(String studentId, String courseId, String sessionId) throws RemoteException, WrongInputException {
         if (verifySession(sessionId)) {
             try {
-                checkId(studentId, courseId);
-                boolean result = data.registerCourse(studentId, courseId);
-                log(Level.INFO, "Registered course. Student ID: " + studentId + ", Course ID: " + courseId);
+                Student selectedStudent = checkId(studentId, courseId);
+                if (selectedStudent == null) {
+                    return false;
+                }
+                boolean result = data.registerCourse(studentId,courseId);
+                if (result) {
+                    selectedStudent.registerCourse(courseId); // 학생 객체에 과목 ID 등록
+                    log(Level.INFO, "Registered course. Student ID: " + studentId + ", Course ID: " + courseId);
+                }
                 return result;
+
             } catch (NullDataException e) {
                 log(Level.SEVERE, "Error in course registration for Student ID: " + studentId + ", Course ID: " + courseId);
                 e.printStackTrace();
@@ -134,21 +141,37 @@ public class Server extends UnicastRemoteObject implements ServerIF {
         }
     }
 
-    private boolean checkId(String studentId, String courseId) throws RemoteException, NullDataException, WrongInputException {
+
+    private Student checkId(String studentId, String courseId) throws RemoteException, NullDataException {
         Student selectedStudent = data.getStudentById(studentId);
         if (selectedStudent == null) {
-            throw new WrongInputException("Error: Student is not registered.");
+            System.out.println("Error: The student is not registered.");
+            return null;
         }
+
         Course selectedCourse = data.getCourseById(courseId);
         if (selectedCourse == null) {
-            throw new WrongInputException("Error: Course is not registered");
+            System.out.println("Error: The course is not registered.");
+            return null;
         }
+
         String prerequisite = selectedCourse.getpreRequisite();
+
+        // 선수 과목 미이수 확인
         if (!prerequisite.isEmpty() && !selectedStudent.getCompletedCourses().contains(prerequisite)) {
-            log(Level.WARNING, "Student ID: " + studentId + " missing prerequisite for Course ID: " + courseId);
-            return false;
+            System.out.println("The student has not completed the prerequisite course.");
+            return null;
         }
-        return true;
+
+        // 중복 과목 수강 확인
+        if (selectedStudent.getCompletedCourses().contains(courseId)) {
+            System.out.println("The student has already completed this course.");
+            log(Level.SEVERE, "Error in course registration for Student ID: " + studentId + ", Course ID: " + courseId);
+            
+            return null;
+        }
+
+        return selectedStudent; // 모든 조건을 만족하는 학생 반환
     }
 
     @Override
@@ -177,7 +200,18 @@ public class Server extends UnicastRemoteObject implements ServerIF {
         log(Level.WARNING, "Authentication failed for user: " + userId);
         return null;
     }
-
+    
+    @Override
+    public Student findStudentById(String studentId, String sessionId) throws RemoteException, NullDataException {
+        if (verifySession(sessionId)) {
+            Student student = data.getStudentById(studentId);
+            log(Level.INFO, "Fetched student data for ID: " + studentId);
+            return student;
+        } else {
+            log(Level.WARNING, "Invalid session for student search.");
+            throw new RemoteException("Invalid session.");
+        }
+    }
     @Override
     public boolean verifySession(String sessionId) throws RemoteException {
         boolean isValid = sessionMap.containsKey(sessionId);
@@ -198,20 +232,48 @@ public class Server extends UnicastRemoteObject implements ServerIF {
     }
 
     @Override
-    public boolean signUp(String userId, String userPw) throws NullDataException, RemoteException {
+    public boolean signUp(String userId, String userPw,String firstName,String lastName) throws NullDataException, RemoteException {
         checkUserId(userId);
-        boolean result = data.addUserRecords(userId + " " + userPw);
-        log(Level.INFO, "User signed up. User ID: " + userId);
+        boolean result = data.addUserRecords(userId + " " + userPw+" "+firstName+" "+lastName);
+        log(Level.INFO, "User signed up. User ID: ");
         return result;
     }
 
     private boolean checkUserId(String userId) throws NullDataException, RemoteException {
         User selectedUser = data.getUserById(userId);
         if (selectedUser != null) {
-            log(Level.WARNING, "Attempted sign up with existing User ID: " + userId);
+            log(Level.WARNING, "Attempted sign up with existing User ID: ");
             System.out.println("이미 존재하는 ID 입니다.");
             return false;
         }
         return true;
+    }
+    
+    @Override
+    public Course findCourseById(String courseId, String sessionId) throws RemoteException, NullDataException {
+        if (verifySession(sessionId)) {
+            Course course = data.getCourseById(courseId);
+            log(Level.INFO, "Fetched course data for ID: " + courseId);
+            return course;
+        } else {
+            log(Level.WARNING, "Invalid session for course search.");
+            throw new RemoteException("Invalid session.");
+        }
+    }
+
+    @Override
+    public boolean deleteRegistration(String studentId, String courseId, String sessionId) throws RemoteException {
+        if (verifySession(sessionId)) {
+            boolean result = data.deleteRegistration(studentId, courseId);
+            if (result) {
+                log(Level.INFO, "Deleted registration. Student ID: " + studentId + ", Course ID: " + courseId);
+            } else {
+                log(Level.WARNING, "Failed to delete registration for Student ID: " + studentId + ", Course ID: " + courseId);
+            }
+            return result;
+        } else {
+            log(Level.WARNING, "Invalid session for registration deletion.");
+            throw new RemoteException("Invalid session.");
+        }
     }
 }

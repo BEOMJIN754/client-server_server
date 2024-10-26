@@ -20,6 +20,4 @@ public class User implements Serializable{
 	public boolean match(String userId) {
 		return this.userId.equals(userId);
 	}
-	
-
 }

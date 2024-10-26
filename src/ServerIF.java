@@ -15,7 +15,10 @@ public interface ServerIF extends Remote{
 	String authenticateUser(String userId, String userPw)throws RemoteException, NullDataException;
 	boolean addUserRecords(String usetInfo) throws RemoteException;
 	boolean deleteUserRecords(String userId) throws RemoteException;
-	boolean signUp(String userId, String userPw) throws RemoteException, NullDataException;
+	boolean signUp(String userId, String userPw, String firstName, String lastName) throws RemoteException, NullDataException;
 	boolean verifySession(String sessionId) throws RemoteException;
 	boolean logoutUser(String sessionId) throws RemoteException;
+	boolean deleteRegistration(String studentId, String courseId, String sessionId) throws RemoteException;
+	Student findStudentById(String studentId, String sessionId) throws RemoteException, NullDataException;
+	Course findCourseById(String courseId, String sessionId)throws RemoteException, NullDataException;
 }
