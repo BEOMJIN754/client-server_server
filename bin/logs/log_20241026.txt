@@ -1,0 +1,14 @@
+10월 26, 2024 4:17:54 오후 ServerLogger log
+INFO: Server is ready.
+10월 26, 2024 4:18:10 오후 ServerLogger log
+INFO: User signed up. User ID: 12345678
+10월 26, 2024 4:18:15 오후 ServerLogger log
+WARNING: Authentication failed for user: 123456
+10월 26, 2024 4:18:37 오후 ServerLogger log
+INFO: User authenticated successfully. User ID: 12345678
+10월 26, 2024 4:18:38 오후 ServerLogger log
+INFO: Fetched all student data.
+10월 26, 2024 4:18:39 오후 ServerLogger log
+INFO: Fetched all course data.
+10월 26, 2024 4:19:17 오후 ServerLogger log
+INFO: User logged out successfully.
